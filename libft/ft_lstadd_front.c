@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 12:57:00 by alli              #+#    #+#             */
-/*   Updated: 2024/04/09 17:49:07 by alli             ###   ########.fr       */
+/*   Created: 2023/11/07 16:16:35 by alli              #+#    #+#             */
+/*   Updated: 2023/11/15 15:52:21 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <signal.h>
-# include <sys/types.h>
-# include <stdio.h>
-# include "./libft/libft.h"
-
-#endif
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!new || !lst)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 12:57:00 by alli              #+#    #+#             */
-/*   Updated: 2024/04/09 17:49:07 by alli             ###   ########.fr       */
+/*   Created: 2023/10/31 10:13:59 by alli              #+#    #+#             */
+/*   Updated: 2023/11/10 17:04:10 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <signal.h>
-# include <sys/types.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*str1;
+	unsigned char	*str2;
 
-#endif
+	i = 0;
+	str1 = (unsigned char *) s1;
+	str2 = (unsigned char *) s2;
+	if (n == 0)
+		return (0);
+	while ((i < n - 1) && (str1[i] == str2[i]))
+	{
+		i++;
+	}
+	return (str1[i] - str2[i]);
+}

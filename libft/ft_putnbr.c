@@ -6,7 +6,7 @@
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 14:40:53 by alli              #+#    #+#             */
-/*   Updated: 2023/11/24 15:31:01 by alli             ###   ########.fr       */
+/*   Updated: 2023/11/29 08:55:48 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 int	ft_putnbr(long f)
 {
-	int	i;
-	char *symbols;
-	
+	int		i;
+	char	*symbols;
+
 	symbols = "0123456789";
-	if (f == -2147483648)
-		return (ft_putstr("-2147483648"));
 	if (f < 0)
 	{
 		if (write (1, "-", 1) < 0)
@@ -38,6 +36,7 @@ int	ft_putnbr(long f)
 		return (i + ft_putnbr(f % 10));
 	}
 }
+
 int	ft_putnbr_u(unsigned int u)
 {
 	int	i;
@@ -64,9 +63,10 @@ int	ft_putnbr_u(unsigned int u)
 	}
 	return (i);
 }
+
 int	ft_hexnum_l(unsigned int n)
 {
-	int i;
+	int	i;
 	int	temp;
 
 	i = 0;
@@ -83,16 +83,17 @@ int	ft_hexnum_l(unsigned int n)
 		return (-1);
 	return (i);
 }
+
 int	ft_hexnum_u(unsigned int n)
 {
-	int i;
-	int temp;
+	int	i;
+	int	temp;
 
 	i = 0;
 	temp = 0;
 	if (n > 15)
 	{
-		i = ft_hexnum_u(n /16);
+		i = ft_hexnum_u(n / 16);
 		temp = i;
 		if (temp < 0)
 			return (-1);

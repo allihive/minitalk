@@ -1,24 +1,40 @@
-SERVER = server
-CLIENT = client
+NAME = minitalk
+SERVER_NAME = server
+CLIENT_NAME = client
 
-CFLAGS = -Wall -Werror -Wextra
-CC = cc
-FLAGS = -Wall -Wextra -Werror -I$(PRINTF)/headers -L$(PRINTF) -lftprintf
+CFLAGS = -Wall -Werror -Wextra 
 
-PRINTF = ft_printf
+# FLAGS = -Wall -Wextra -Werror -I
+#$(PRINTF)/headers -L$(PRINTF) -lftprintf
 
-all:
-	@make -s -C $(PRINTF)
-	@cc $(FLAGS) server.c -o $(SERVER)
-	@cc $(FLAGS) client.c -o $(CLIENT)
-	@echo "Server And Client Are Ready!"
+LIBFT_DIR = ./libft
+LIBFT = ./libft/libft.a
+
+SERVER_C = server.c
+CLIENT_C = client.c
+
+all: $(NAME)
+
+$(NAME): $(LIBFT) $(SERVER_NAME) $(CLIENT_NAME)
+	@echo "Server and Client are ready"
+
+$(SERVER_NAME): $(SERVER_C) $(LIBFT)
+	cc $(CFLAGS) -o $@ $(SERVER_C) -L$(LIBFT_DIR) -lft
+
+$(CLIENT_NAME): $(CLIENT_C) $(LIBFT)
+	cc $(CFLAGS) -o $@ $(CLIENT_C) -L$(LIBFT_DIR) -lft
+
+$(LIBFT):
+	$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	@make clean -s -C $(PRINTF)
-
+	@make clean -s -C $(LIBFT_DIR)
+	@rm -f $(SERVER_O) $(CLIENT_O)
+	
 fclean: clean
-	@make fclean -s -C $(PRINTF)
-	@rm -f $(SERVER) $(CLIENT)
+	@make fclean -s -C $(LIBFT_DIR)
+	@rm -f $(SERVER_NAME) $(CLIENT_NAME)
 	@echo "Server and Client Have Been Cleaned Successfully"
 
 re: fclean all
+

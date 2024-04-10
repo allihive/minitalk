@@ -6,7 +6,7 @@
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:43:54 by alli              #+#    #+#             */
-/*   Updated: 2023/11/24 14:43:17 by alli             ###   ########.fr       */
+/*   Updated: 2023/11/27 08:15:51 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@ int	ft_putchar(char c)
 		return (-1);
 	return (1);
 }
+
 int	ft_putstr(char *s)
 {
 	int	i;
-	int temp;
+	int	temp;
 
 	i = 0;
 	if (!s)
 	{
 		if (ft_putstr("(null)") == -1)
-		 	return (-1);
+			return (-1);
 		return (6);
 	}
 	while (s[i] != '\0')
@@ -39,11 +40,12 @@ int	ft_putstr(char *s)
 	}
 	return (i);
 }
+
 int	ft_ret_ptr(void *ptr)
 {
 	unsigned long	base;
-	int help;
-	int	temp;
+	int				help;
+	int				temp;
 
 	base = (unsigned long) ptr;
 	help = 0;

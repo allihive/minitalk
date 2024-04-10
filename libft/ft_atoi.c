@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 13:10:26 by alli              #+#    #+#             */
-/*   Updated: 2024/04/02 13:14:50 by alli             ###   ########.fr       */
+/*   Created: 2023/11/10 09:23:36 by alli              #+#    #+#             */
+/*   Updated: 2024/03/22 17:07:49 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
 static int	check_longint(long num, int dig)
 {
@@ -51,24 +51,4 @@ int	ft_atoi(const char *str)
 	if (!sign)
 		total = total * -1;
 	return (total);
-}
-
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
-}
-
-size_t	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
 }

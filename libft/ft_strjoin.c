@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alli <alli@student.hive.fi>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/02 12:57:00 by alli              #+#    #+#             */
-/*   Updated: 2024/04/09 17:49:07 by alli             ###   ########.fr       */
+/*   Created: 2023/11/01 11:13:37 by alli              #+#    #+#             */
+/*   Updated: 2024/03/08 14:07:05 by alli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "libft.h"
 
-# include <unistd.h>
-# include <signal.h>
-# include <sys/types.h>
-# include <stdio.h>
-# include "./libft/libft.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*new;
+	int		i;
+	int		j;
 
-#endif
+	i = 0;
+	j = 0;
+	new = malloc(((ft_strlen(s1)) + (ft_strlen(s2)) + 1) * sizeof(char));
+	if (!new)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		new[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		new[i] = s2[j];
+		i++;
+		j++;
+	}
+	new[i] = '\0';
+	free((void *)s1);
+	return (new);
+}
